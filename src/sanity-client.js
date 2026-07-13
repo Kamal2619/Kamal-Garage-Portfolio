@@ -83,7 +83,12 @@ export function urlFor(source) {
 }
 
 export function portableTextToHtml(blocks) {
-  if (!blocks || !Array.isArray(blocks)) return '';
+  if (!blocks) return '';
+  // Handle legacy string data (if they haven't re-saved in the new Rich Text format yet)
+  if (typeof blocks === 'string') {
+    return `<p>${blocks.replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<br>')}</p>`;
+  }
+  if (!Array.isArray(blocks)) return '';
   let html = '';
   let inList = false;
   let listType = '';
