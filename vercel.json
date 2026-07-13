@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "name": "kamals-garage",
+  "buildCommand": "echo 'No build command needed'",
+  "outputDirectory": ".",
+  "cleanUrls": true
+}

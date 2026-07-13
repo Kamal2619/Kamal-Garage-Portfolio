@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Kamal J R — Elevator Portfolio. IoT, UI/UX, and Software Development works." />
+    <meta name="theme-color" content="#07080c" />
+    <title>Kamal J R | Elevator Portfolio</title>
+    <link rel="icon" href="/assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body data-state="loading" data-floor="B">
+    <!-- 3D Startup Sequence -->
+    <div id="startup-sequence">
+      <div class="startup-cube">
+        <div class="cube-face front"></div><div class="cube-face back"></div>
+        <div class="cube-face left"></div><div class="cube-face right"></div>
+        <div class="cube-face top"></div><div class="cube-face bottom"></div>
+      </div>
+    </div>
+
+    <div id="viewport-3d">
+      <div id="scene-3d">
+
+    <div id="elevator-frame" class="elevator-frame" aria-hidden="true">
+      <div class="elevator-door left"><div class="door-surface"><div class="door-line"></div><div class="door-line"></div><div class="door-line"></div></div></div>
+      <div class="elevator-door right"><div class="door-surface"><div class="door-line"></div><div class="door-line"></div><div class="door-line"></div></div></div>
+      <div class="door-light"></div>
+    </div>
+    
+    <nav id="elevator-panel" class="elevator-panel" aria-label="Floor selector">
+      <button class="panel-btn active" data-target="floor-B" data-floor="B" style="--accent:#E6C02E"><span class="btn-id">B</span><span class="btn-label">Intro</span></button>
+      <button class="panel-btn" data-target="floor-1" data-floor="1" style="--accent:#E6C02E"><span class="btn-id">1</span><span class="btn-label">Our Works</span></button>
+      <button class="panel-btn" data-target="floor-2" data-floor="2" style="--accent:#E6C02E"><span class="btn-id">2</span><span class="btn-label">Tools</span></button>
+      <button class="panel-btn" data-target="floor-3" data-floor="3" style="--accent:#E6C02E"><span class="btn-id">3</span><span class="btn-label">Feedback</span></button>
+      <button class="panel-btn" data-target="floor-R" data-floor="R" style="--accent:#E6C02E"><span class="btn-id">R</span><span class="btn-label">Contact</span></button>
+    </nav>
+    
+    <header class="topbar" style="justify-content: space-between; width: 100%;">
+      <a href="/index.html#floor-B" class="brand-link">
+        <img src="/assets/logo.png" alt="Kamal J R" class="brand-mark" style="border-radius: 50%; width: 40px; height: 40px; object-fit: cover;" />
+      </a>
+      <div class="studio-info">
+        <span class="coordinates" style="font-weight: bold; letter-spacing: 2px;">CHENNAI PAIYAN</span>
+      </div>
+      <div class="social-info" style="display: flex; gap: 20px; align-items: center;">
+        <a href="https://www.linkedin.com/in/kamal-jr-6a9682257" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a>
+        <a href="https://github.com/Kamal2619" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
+      </div>
+      <div class="elevator-top-bar">
+        <div id="floor-indicator" class="floor-indicator">
+          <span class="indicator-label">FLOOR</span>
+          <span id="indicator-value" class="indicator-value">B</span>
+        </div>
+        <div class="indicator-arrows">
+          <span id="arrow-up" class="arrow up">▲</span>
+          <span id="arrow-down" class="arrow down">▼</span>
+        </div>
+      </div>
+    </header>
+    
+    <div id="scroll-hint" class="scroll-hint"><div class="scroll-mouse"><div class="scroll-wheel"></div></div><span>Scroll to explore</span></div>
+    <div id="scroll-edge-hint" class="scroll-edge-hint"><span>Keep scrolling to take elevator</span></div>
+    
+    <main id="floors" class="floors">
+      
+      <!-- B - Intro -->
+      <section id="floor-B" class="floor-section floor-basement active" data-floor-id="B" data-kicker="The Garage" data-title="Launch Sequence">
+        <div class="floor-bg-accent"></div>
+        <div class="floor-content">
+          <!-- Hero Section -->
+          <div class="hero-section" data-animate style="justify-content: flex-start;">
+            <div class="hero-tagline-container">
+              <h1 class="hero-tagline">
+                <span class="bold-text">Building scalable</span> digital<br>
+                <span class="light-text">solutions & experiences.</span>
+              </h1>
+              <p class="hero-disciplines">
+                Software Engineering / IoT / UI/UX Design / Frontend Development
+              </p>
+            </div>
+          </div>
+
+          <!-- Founder Cards -->
+          <div class="founders-grid" data-animate style="margin: 0 auto;">
+            <!-- Kamal -->
+            <div class="founder-card">
+              <div class="founder-portrait"><img src="/assets/kamal.jpg?v=3" alt="Kamal J R" /></div>
+              <div class="founder-info">
+                <div class="founder-meta">COMPUTER SCIENCE UNDERGRADUATE</div>
+                <h3>Kamal J R</h3>
+                <span class="founder-role">IoT & Software Developer</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Manifesto -->
+          <div class="brand-manifesto-highlight new-manifesto" data-animate>
+            <p class="duality-text">
+              <span class="highlight-line">Passionate about building scalable digital solutions.</span>
+              <span class="body-line">Computer Science undergraduate with hands-on experience in Java, Python, IoT, SQL, UI/UX, frontend development, and software engineering through internships and leadership roles. Strong collaborator eager to contribute technical skills and creativity to innovative teams.</span>
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 1 - Works -->
+      <section id="floor-1" class="floor-section floor-works" data-floor-id="1" data-kicker="The Showroom" data-title="Our Works">
+        <div class="floor-bg-accent"></div>
+        <div class="floor-content">
+          <div class="floor-header"><span class="floor-tag">FLOOR 1</span><h2 class="floor-title">My <em>Works</em></h2><p class="floor-subtitle">A showcase of my software engineering, design, and IoT projects.</p></div>
+          <div class="category-grid">
+            <a href="/works/developer.html" class="category-card" data-animate>
+              <div class="category-image" style="background: #1a1a1a; display: flex; align-items: center; justify-content: center; overflow: hidden;"><img src="/assets/kamal_developer.png" alt="Developer Thumbnail" style="width: 100%; height: 100%; object-fit: cover;" /></div>
+              <div class="category-info"><h3>Developer Me</h3><span>Software development works and pages</span></div>
+            </a>
+            <a href="/works/designer.html" class="category-card" data-animate>
+              <div class="category-image" style="background: #1a1a1a; display: flex; align-items: center; justify-content: center; overflow: hidden;"><img src="/assets/kamal_designer.png" alt="Designer Thumbnail" style="width: 100%; height: 100%; object-fit: cover;" /></div>
+              <div class="category-info"><h3>Designer Me</h3><span>UI/UX and design pages</span></div>
+            </a>
+            <a href="/works/creator.html" class="category-card" data-animate>
+              <div class="category-image" style="background: #1a1a1a; display: flex; align-items: center; justify-content: center; overflow: hidden;"><img src="/assets/kamal_creator.png" alt="Creator Thumbnail" style="width: 100%; height: 100%; object-fit: cover;" /></div>
+              <div class="category-info"><h3>Creator ME</h3><span>IoT projects and systems</span></div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 - Tools -->
+      <section id="floor-2" class="floor-section floor-tools" data-floor-id="2" data-kicker="The Workshop" data-title="Our Tools">
+        <div class="floor-bg-accent"></div>
+        <div class="floor-content">
+          <div class="floor-header"><span class="floor-tag">FLOOR 2</span><h2 class="floor-title">My <em>Tools</em></h2><p class="floor-subtitle">Languages, frameworks, and technologies I utilize to build solutions.</p></div>
+          
+          <div class="toolbox-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            <div class="toolbox-container" data-animate style="--brand-glow: rgba(230, 192, 46, 0.5); --accent: #E6C02E;">
+              <div class="toolbox-lid"></div>
+              <div class="toolbox-base">
+                <div class="toolbox-cavity"></div>
+                <div class="tool-logo-wrapper" style="display:flex; justify-content:center; align-items:center; background:#111;">
+                  <span style="font-size: 2.5rem; color:#E6C02E; font-weight:bold;">JS</span>
+                </div>
+              </div>
+              <div class="tool-reveal">
+                <h3>JavaScript & React</h3>
+                <p>Frontend web development</p>
+              </div>
+            </div>
+            
+            <div class="toolbox-container" data-animate style="--brand-glow: rgba(55, 118, 171, 0.5); --accent: #3776AB;">
+              <div class="toolbox-lid"></div>
+              <div class="toolbox-base">
+                <div class="toolbox-cavity"></div>
+                <div class="tool-logo-wrapper" style="display:flex; justify-content:center; align-items:center; background:#111;">
+                  <span style="font-size: 2.5rem; color:#3776AB; font-weight:bold;">Py</span>
+                </div>
+              </div>
+              <div class="tool-reveal">
+                <h3>Python & Java</h3>
+                <p>Backend & software logic</p>
+              </div>
+            </div>
+            
+            <div class="toolbox-container" data-animate style="--brand-glow: rgba(0, 169, 143, 0.5); --accent: #00a98f;">
+              <div class="toolbox-lid"></div>
+              <div class="toolbox-base">
+                <div class="toolbox-cavity"></div>
+                <div class="tool-logo-wrapper" style="display:flex; justify-content:center; align-items:center; background:#111;">
+                  <span style="font-size: 2.5rem; color:#00a98f; font-weight:bold;">IoT</span>
+                </div>
+              </div>
+              <div class="tool-reveal">
+                <h3>IoT / Arduino</h3>
+                <p>Embedded systems & sensors</p>
+              </div>
+            </div>
+            
+            <div class="toolbox-container" data-animate style="--brand-glow: rgba(242, 78, 30, 0.5); --accent: #F24E1E;">
+              <div class="toolbox-lid"></div>
+              <div class="toolbox-base">
+                <div class="toolbox-cavity"></div>
+                <div class="tool-logo-wrapper" style="display:flex; justify-content:center; align-items:center; background:#111;">
+                  <span style="font-size: 2.5rem; color:#F24E1E; font-weight:bold;">Fi</span>
+                </div>
+              </div>
+              <div class="tool-reveal">
+                <h3>Figma</h3>
+                <p>UI/UX Design & Prototyping</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Future 3D frame animation container -->
+          <div id="tool-frames-container" class="tool-frames-container" data-animate>
+          </div>
+          
+        </div>
+      </section>
+
+      <!-- 3 - Feedback -->
+      <section id="floor-3" class="floor-section floor-feedback" data-floor-id="3" data-kicker="Client Log" data-title="Driven By Trust">
+        <div class="floor-bg-accent"></div>
+        <div class="floor-content">
+          <div class="floor-header"><span class="floor-tag">FLOOR 3</span><h2 class="floor-title">Client's <em>Words</em></h2><p class="floor-subtitle">Client testimonials and reviews from the brands we have successfully deployed.</p></div>
+          
+          <div class="feedback-grid">
+            <div class="feedback-card" data-animate>
+              <div class="stars">★★★★★</div>
+              <p>"Minimal Creates doesn't just design, they engineer obsession. Every mockup felt premium and ready for the streets."</p>
+              <div class="client-info"><strong>Arcticc</strong><span>Founder</span></div>
+            </div>
+            <div class="feedback-card" data-animate>
+              <div class="stars">★★★★★</div>
+              <p>"The best design mechanics in the industry. They stripped our brand to the chassis and built us a powerhouse."</p>
+              <div class="client-info"><strong>Onlysick</strong><span>Creative Lead</span></div>
+            </div>
+          </div>
+
+          <div class="marquee-container" data-animate>
+            <div class="marquee-track">
+              <div class="marquee-item"><a href="/works/arcticc.html"><img src="/assets/arcticc-logo.png" alt="Arcticc" /></a></div>
+              <div class="marquee-item"><a href="/works/420-clothing.html"><img src="/assets/420-logo.png" alt="420" /></a></div>
+              <div class="marquee-item"><a href="/works/onlysick.html"><img src="/assets/onlysick-logo.png" alt="Onlysick" /></a></div>
+              <div class="marquee-item"><a href="/works/saveetha.html"><img src="/assets/saveetha-logo.png" alt="Saveetha" /></a></div>
+              <div class="marquee-item"><a href="/works/zensage.html"><img src="/assets/zensage-logo.jpg" alt="Zensage" /></a></div>
+              <div class="marquee-item"><a href="/works/mc-identity.html"><img src="/assets/mc-logo-cube.png" alt="MC" /></a></div>
+              <div class="marquee-item"><a href="/works/arcticc.html"><img src="/assets/arcticc-logo.png" alt="Arcticc" /></a></div>
+              <div class="marquee-item"><a href="/works/420-clothing.html"><img src="/assets/420-logo.png" alt="420" /></a></div>
+              <div class="marquee-item"><a href="/works/onlysick.html"><img src="/assets/onlysick-logo.png" alt="Onlysick" /></a></div>
+              <div class="marquee-item"><a href="/works/saveetha.html"><img src="/assets/saveetha-logo.png" alt="Saveetha" /></a></div>
+              <div class="marquee-item"><a href="/works/zensage.html"><img src="/assets/zensage-logo.jpg" alt="Zensage" /></a></div>
+              <div class="marquee-item"><a href="/works/mc-identity.html"><img src="/assets/mc-logo-cube.png" alt="MC" /></a></div>
+              <div class="marquee-item"><a href="/works/arcticc.html"><img src="/assets/arcticc-logo.png" alt="Arcticc" /></a></div>
+              <div class="marquee-item"><a href="/works/420-clothing.html"><img src="/assets/420-logo.png" alt="420" /></a></div>
+              <div class="marquee-item"><a href="/works/onlysick.html"><img src="/assets/onlysick-logo.png" alt="Onlysick" /></a></div>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+
+      <!-- R - Contact / Founders -->
+      <section id="floor-R" class="floor-section floor-rooftop" data-floor-id="R" data-kicker="The Helipad" data-title="Get in Touch">
+        <div class="floor-bg-accent"></div>
+        <div class="floor-content">
+          <div class="floor-header"><span class="floor-tag">ROOFTOP</span><h2 class="floor-title">Get in <em>Touch</em></h2><p class="floor-subtitle">Let's build something legendary together. Submit an inquiry to get in touch.</p></div>
+          
+          <div class="contact-section">
+            <form id="contact-form" class="contact-form" data-animate action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="7c2f3468-c02d-49f1-ba2f-d86c88ba1bee">
+              <input type="hidden" name="subject" value="New Project Inquiry from Minimal Creates">
+              <input type="checkbox" name="botcheck" style="display: none;">
+              <div class="carousel-container">
+                <div class="form-step active" data-step="1">
+                  <label><span>What is your name?</span><input id="contact-name" name="name" required placeholder="John Doe" /></label>
+                  <div class="step-actions">
+                    <button type="button" class="next-btn">Next →</button>
+                  </div>
+                </div>
+                
+                <div class="form-step" data-step="2">
+                  <label><span>What is your email?</span><input id="contact-email" name="email" type="email" required placeholder="john@example.com" /></label>
+                  <div class="step-actions">
+                    <button type="button" class="prev-btn">← Back</button>
+                    <button type="button" class="next-btn">Next →</button>
+                  </div>
+                </div>
+
+                <div class="form-step" data-step="3">
+                  <label><span>Your contact number?</span><input id="contact-phone" name="phone" type="tel" required placeholder="+91 98765 43210" /></label>
+                  <div class="step-actions">
+                    <button type="button" class="prev-btn">← Back</button>
+                    <button type="button" class="next-btn">Next →</button>
+                  </div>
+                </div>
+
+                <div class="form-step" data-step="4">
+                  <label><span>How should we reach you? (Optional)</span><input id="contact-whatsapp" name="whatsapp" type="text" placeholder="WhatsApp, Phone, or social handle" /></label>
+                  <div class="step-actions">
+                    <button type="button" class="prev-btn">← Back</button>
+                    <button type="button" class="next-btn skip-btn">Skip →</button>
+                  </div>
+                </div>
+
+                <div class="form-step" data-step="5">
+                  <label><span>What do you need?</span><textarea id="contact-need" name="message" rows="4" required placeholder="Tell us about your project..."></textarea></label>
+                  <div class="step-actions">
+                    <button type="button" class="prev-btn">← Back</button>
+                    <button class="send-button" type="submit">Send It →</button>
+                  </div>
+                </div>
+              </div>
+              <div class="step-indicator">
+                <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              </div>
+              <div id="form-result" class="form-result"></div>
+            </form>
+            <div class="contact-info" data-animate>
+              <div class="contact-brand"><img src="/assets/logo.png" alt="Kamal J R" style="border-radius:50%; width:40px; height:40px; object-fit:cover;" /><span>Kamal J R</span></div>
+              <address>
+                <a href="tel:+917338945504">
+                  <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  +91 7338945504
+                </a>
+                <a href="mailto:jrkamal2619@gmail.com">
+                  <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  jrkamal2619@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/kamal-jr-6a9682257" target="_blank" rel="noreferrer">
+                  <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                  LinkedIn
+                </a>
+                <a href="https://github.com/Kamal2619" target="_blank" rel="noreferrer">
+                  <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  GitHub
+                </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div> <!-- /scene-3d -->
+</div> <!-- /viewport-3d -->
+
+    <div id="cursor-elevator" class="cursor-elevator" aria-hidden="true">
+      <div class="cursor-elevator-inner"></div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

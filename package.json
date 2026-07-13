@@ -1,0 +1,13 @@
+{
+  "name": "minimal-creates-elevator-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "python -m http.server 5173 --bind 127.0.0.1",
+    "build": "powershell -ExecutionPolicy Bypass -File scripts/build-static.ps1",
+    "preview": "python -m http.server 4173 --directory dist --bind 127.0.0.1"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

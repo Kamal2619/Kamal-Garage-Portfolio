@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07080c" />
+    <title>Project Details | Kamal J R</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link rel="stylesheet" href="/src/works.css" />
+  </head>
+  <body>
+    <!-- Topbar -->
+    <header class="works-topbar">
+      <a href="/index.html" class="brand-link">
+        <img src="/assets/logo.png" alt="Kamal J R" class="brand-mark" style="border-radius: 50%; width: 40px; height: 40px; object-fit: cover;" />
+      </a>
+      <div class="studio-info">
+        <span class="coordinates">CHENNAI PAIYAN</span>
+      </div>
+      <div class="social-info" style="display: flex; gap: 20px; align-items: center; flex-direction: row;">
+        <a href="https://www.linkedin.com/in/kamal-jr-6a9682257" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a>
+        <a href="https://github.com/Kamal2619" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
+      </div>
+      <a href="javascript:history.back()" class="back-link" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;">
+        <span class="arrow">←</span> Back
+      </a>
+    </header>
+
+    <div id="loading-spinner" style="display: flex; justify-content: center; align-items: center; height: 80vh; color: #fff;">
+      <h2>Loading Project...</h2>
+    </div>
+
+    <main class="project-showcase" id="project-container" style="display: none;">
+      <!-- Left Column: Details & Overview -->
+      <section class="project-details-sidebar">
+        <div class="project-header-block">
+          <span class="project-tag" id="pd-tag"></span>
+          <h1 class="project-title" id="pd-title"> </h1>
+        </div>
+
+        <div class="project-meta-grid">
+          <div class="meta-cell">
+            <span>Project Type</span>
+            <strong id="pd-type"></strong>
+          </div>
+          <div class="meta-cell">
+            <span>Duration</span>
+            <strong id="pd-duration"></strong>
+          </div>
+          <div class="meta-cell">
+            <span>Focus Area</span>
+            <strong id="pd-focus"></strong>
+          </div>
+          <div class="meta-cell">
+            <span>Deliverables</span>
+            <strong id="pd-deliverables"></strong>
+          </div>
+        </div>
+
+        <div class="project-narrative">
+          <div id="pd-challenge-block">
+            <h3>The Challenge</h3>
+            <p id="pd-challenge"></p>
+          </div>
+
+          <div id="pd-solution-block">
+            <h3>The Solution</h3>
+            <p id="pd-solution"></p>
+          </div>
+
+          <div id="pd-feedback-block" style="display: none;">
+            <h3>Client Feedback</h3>
+            <blockquote style="font-style: italic; border-left: 3px solid rgba(255, 255, 255, 0.2); padding-left: 15px; margin: 20px 0; color: #b3b3b3;">
+              "<span id="pd-feedback-quote"></span>"
+              <br><br>
+              <strong style="color: #fff;" id="pd-feedback-author"></strong>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Visual Mockup Showcase -->
+      <section class="project-visuals-column" id="pd-gallery">
+        <!-- Images injected here -->
+      </section>
+    </main>
+
+    <div id="cursor-elevator" class="cursor-elevator" aria-hidden="true"><div class="cursor-elevator-inner"></div></div>
+    
+    <script type="module" src="/src/works.js"></script>
+    <script type="module" src="/src/work-detail.js"></script>
+  </body>
+</html>

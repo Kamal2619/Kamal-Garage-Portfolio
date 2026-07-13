@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07080c" />
+    <title>Creator ME | Kamal J R</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link rel="stylesheet" href="/src/works.css" />
+    <link rel="icon" href="/assets/logo.png" />
+  </head>
+  <body>
+    <!-- Topbar -->
+    <header class="works-topbar">
+      <a href="/index.html" class="brand-link">
+        <img src="/assets/logo.png" alt="Kamal J R" class="brand-mark" style="border-radius: 50%; width: 40px; height: 40px; object-fit: cover;" />
+      </a>
+      <div class="studio-info">
+        <span class="coordinates">CHENNAI PAIYAN</span>
+      </div>
+      <div class="social-info" style="display: flex; gap: 20px; align-items: center; flex-direction: row;">
+        <a href="https://www.linkedin.com/in/kamal-jr-6a9682257" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a>
+        <a href="https://github.com/Kamal2619" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
+      </div>
+      <a href="javascript:history.back()" class="back-link" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;">
+        <span class="arrow">←</span> Back
+      </a>
+    </header>
+
+    <main class="works-main">
+      <section class="works-hero">
+        <span class="works-tag">CATEGORY 03</span>
+        <h1 class="works-title">Creator <em>ME</em></h1>
+        <p class="works-subtitle">Showcasing my IoT projects, embedded systems, and hardware-software integration for real-world solutions.</p>
+      </section>
+
+      <section class="brand-list" id="dynamic-brand-list" data-category="creator"><div style="color: #fff; padding: 2rem;">Loading projects...</div></section>
+    </main>
+
+    <div id="cursor-elevator" class="cursor-elevator" aria-hidden="true"><div class="cursor-elevator-inner"></div></div>
+    <script type="module" src="/src/works.js"></script>
+    <script type="module" src="/src/category-list.js"></script></body>
+</html>
+
+
