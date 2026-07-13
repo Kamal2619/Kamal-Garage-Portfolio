@@ -33,7 +33,8 @@ export async function fetchSanityData() {
         clientName: r.clientName || r.title,
         role: r.clientRole || '',
         quote: r.feedbackQuote,
-        rating: r.rating || 5
+        rating: r.rating || 5,
+        slug: r.slug
       }))
     };
   } catch (error) {

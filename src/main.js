@@ -757,8 +757,11 @@ async function loadSanityContent() {
       feedbackGrid.innerHTML = "";
       data.testimonials.forEach(tDoc => {
         const stars = "★".repeat(tDoc.rating || 5);
-        const card = document.createElement("div");
+        const card = document.createElement("a");
+        card.href = tDoc.slug ? `/works/work-detail.html?slug=${tDoc.slug.current}` : '#';
         card.className = "feedback-card";
+        card.style.textDecoration = "none";
+        card.style.color = "inherit";
         card.dataset.animate = "";
         
         let quoteHtml = portableTextToHtml(tDoc.quote);
