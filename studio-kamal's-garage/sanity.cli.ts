@@ -6,6 +6,7 @@ export default defineCliConfig({
     projectId: 'egixwbp1',
     dataset: 'production'
   },
+  studioHost: 'kamals-garage',
   deployment: {
     /**
      * Enable auto-updates for studios.
