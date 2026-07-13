@@ -770,7 +770,7 @@ async function loadSanityContent() {
         
         card.innerHTML = `
           <div class="stars">${stars}</div>
-          <div class="quote-content" style="font-size: 1.1rem; line-height: 1.6; margin: 1rem 0;">"${quoteHtml}"</div>
+          <div class="quote-content" style="font-size: 1.1rem; line-height: 1.6; margin: 1rem 0;">${quoteHtml}</div>
           <div class="client-info">
             <strong>${tDoc.clientName}</strong>
             <span>${tDoc.role}</span>
