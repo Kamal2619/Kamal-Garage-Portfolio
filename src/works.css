@@ -1,7 +1,7 @@
 /* ═══ WORKS SUB-PAGES SPECIFIC STYLES ═══ */
 
 html, body {
-  background: var(--bg, #0C0C0C);
+  background: var(--bg, #001334);
   color: var(--ink, #FFFDF6);
   overflow: auto !important;
   overflow-y: auto !important;
@@ -50,7 +50,7 @@ html, body {
 }
 
 .back-link:hover {
-  color: #E6C02E;
+  color: #fb7e00;
 }
 
 .brand-mark-small {
@@ -73,7 +73,7 @@ html, body {
   display: block;
   font-size: 0.8rem;
   letter-spacing: 0.3em;
-  color: #E6C02E;
+  color: #fb7e00;
   margin-bottom: 16px;
 }
 
@@ -175,7 +175,7 @@ html, body {
 /* Active State */
 .brand-header[aria-expanded="true"] .expand-icon {
   transform: rotate(45deg);
-  color: #E6C02E;
+  color: #fb7e00;
 }
 
 .brand-header[aria-expanded="true"] {
@@ -209,7 +209,7 @@ html, body {
   font-weight: bold;
   font-size: 1.5rem;
   margin-bottom: 12px;
-  color: #E6C02E;
+  color: #fb7e00;
   text-transform: uppercase;
 }
 
@@ -322,7 +322,7 @@ html, body {
 .brand-meta-tag {
   font-size: 0.72rem;
   font-weight: 800;
-  color: #E6C02E;
+  color: #fb7e00;
   letter-spacing: 0.25em;
   text-transform: uppercase;
 }
@@ -360,7 +360,7 @@ html, body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #E6C02E;
+  color: #fb7e00;
   text-decoration: none;
   font-size: 0.85rem;
   font-weight: 700;
@@ -373,7 +373,7 @@ html, body {
 
 .brand-row-layout:hover .view-project-btn {
   transform: translateX(6px);
-  border-color: #E6C02E;
+  border-color: #fb7e00;
 }
 
 .brand-mockup-side {
@@ -425,7 +425,7 @@ html, body {
 .project-tag {
   font-size: 0.75rem;
   font-weight: 800;
-  color: #E6C02E;
+  color: #fb7e00;
   letter-spacing: 0.25em;
   text-transform: uppercase;
 }
@@ -483,7 +483,7 @@ html, body {
 .project-narrative h3 {
   font-family: 'Playfair Display', serif;
   font-size: 1.35rem;
-  color: #E6C02E;
+  color: #fb7e00;
   margin: 0;
   letter-spacing: 0.02em;
 }
@@ -578,7 +578,7 @@ html, body {
   width: 92%;
   max-width: 1350px;
   height: 88vh;
-  background: #0C0C0C;
+  background: #001334;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
   overflow: hidden;
@@ -612,8 +612,8 @@ html, body {
 }
 
 .modal-close-btn:hover {
-  background: #E6C02E;
-  color: #0c0c0c;
+  background: #fb7e00;
+  color: #001334;
   transform: rotate(90deg);
 }
 
@@ -644,7 +644,7 @@ html, body {
   font-family: 'Alte Haas Grotesk Bold', sans-serif;
   font-size: 0.75rem;
   font-weight: 800;
-  color: #E6C02E;
+  color: #fb7e00;
   letter-spacing: 0.25em;
   text-transform: uppercase;
 }
@@ -669,7 +669,7 @@ html, body {
   font-family: 'Alte Haas Grotesk Bold', 'Alte Haas Grotesk', 'AlteHaasGroteskBold', 'AlteHaasGrotesk', sans-serif;
   font-weight: bold;
   font-size: 1.25rem;
-  color: #E6C02E;
+  color: #fb7e00;
   margin: 0;
   text-transform: uppercase;
 }
