@@ -1,4 +1,4 @@
-import { fetchWorkBySlug, urlFor } from './sanity-client.js';
+import { fetchWorkBySlug, urlFor, portableTextToHtml } from './sanity-client.js';
 
 document.addEventListener("DOMContentLoaded", async () => {
   const urlParams = new URLSearchParams(window.location.search);
@@ -26,20 +26,20 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById('pd-deliverables').innerText = projectData.deliverables || 'N/A';
 
   if (projectData.challenge) {
-    document.getElementById('pd-challenge').innerText = projectData.challenge;
+    document.getElementById('pd-challenge').innerHTML = portableTextToHtml(projectData.challenge);
   } else {
     document.getElementById('pd-challenge-block').style.display = 'none';
   }
 
   if (projectData.solution) {
-    document.getElementById('pd-solution').innerText = projectData.solution;
+    document.getElementById('pd-solution').innerHTML = portableTextToHtml(projectData.solution);
   } else {
     document.getElementById('pd-solution-block').style.display = 'none';
   }
 
   if (projectData.feedbackQuote) {
     document.getElementById('pd-feedback-block').style.display = 'block';
-    document.getElementById('pd-feedback-quote').innerText = projectData.feedbackQuote;
+    document.getElementById('pd-feedback-quote').innerHTML = portableTextToHtml(projectData.feedbackQuote);
     const authorStr = [projectData.clientName, projectData.clientRole].filter(Boolean).join(', ');
     document.getElementById('pd-feedback-author').innerText = authorStr ? `— ${authorStr}` : '';
   }

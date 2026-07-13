@@ -41,7 +41,24 @@ export const brandWorkType = defineType({
     defineField({
       name: 'feedbackQuote',
       title: 'Client Feedback Quote (For Home Feedback)',
-      type: 'text',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+          styles: [
+            {title: 'Normal', value: 'normal'},
+            {title: 'H1', value: 'h1'},
+            {title: 'H2', value: 'h2'},
+            {title: 'H3', value: 'h3'},
+            {title: 'H4', value: 'h4'},
+            {title: 'Quote', value: 'blockquote'},
+            {title: 'Left Align', value: 'leftAlign'},
+            {title: 'Center Align', value: 'centerAlign'},
+            {title: 'Right Align', value: 'rightAlign'},
+            {title: 'Justify Text', value: 'justifyText'},
+          ]
+        }
+      ]
     }),
     defineField({
       name: 'clientName',
@@ -101,12 +118,46 @@ export const brandWorkType = defineType({
     defineField({
       name: 'challenge',
       title: 'The Challenge',
-      type: 'text',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+          styles: [
+            {title: 'Normal', value: 'normal'},
+            {title: 'H1', value: 'h1'},
+            {title: 'H2', value: 'h2'},
+            {title: 'H3', value: 'h3'},
+            {title: 'H4', value: 'h4'},
+            {title: 'Quote', value: 'blockquote'},
+            {title: 'Left Align', value: 'leftAlign'},
+            {title: 'Center Align', value: 'centerAlign'},
+            {title: 'Right Align', value: 'rightAlign'},
+            {title: 'Justify Text', value: 'justifyText'},
+          ]
+        }
+      ]
     }),
     defineField({
       name: 'solution',
       title: 'The Solution',
-      type: 'text',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+          styles: [
+            {title: 'Normal', value: 'normal'},
+            {title: 'H1', value: 'h1'},
+            {title: 'H2', value: 'h2'},
+            {title: 'H3', value: 'h3'},
+            {title: 'H4', value: 'h4'},
+            {title: 'Quote', value: 'blockquote'},
+            {title: 'Left Align', value: 'leftAlign'},
+            {title: 'Center Align', value: 'centerAlign'},
+            {title: 'Right Align', value: 'rightAlign'},
+            {title: 'Justify Text', value: 'justifyText'},
+          ]
+        }
+      ]
     }),
     defineField({
       name: 'gallery',

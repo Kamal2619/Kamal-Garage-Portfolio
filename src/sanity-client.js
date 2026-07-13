@@ -81,3 +81,58 @@ export function urlFor(source) {
   const [, id, dimensions, format] = ref.split('-');
   return `https://cdn.sanity.io/images/${PROJECT_ID}/${DATASET}/${id}-${dimensions}.${format}`;
 }
+
+export function portableTextToHtml(blocks) {
+  if (!blocks || !Array.isArray(blocks)) return '';
+  let html = '';
+  let inList = false;
+  let listType = '';
+
+  blocks.forEach(block => {
+    if (block._type !== 'block' || !block.children) return;
+    
+    let textHtml = '';
+    block.children.forEach(child => {
+      let text = child.text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      if (child.marks && child.marks.length > 0) {
+        if (child.marks.includes('strong')) text = <strong> + text + </strong>;
+        if (child.marks.includes('em')) text = <em> + text + </em>;
+        if (child.marks.includes('underline')) text = <u> + text + </u>;
+      }
+      textHtml += text;
+    });
+
+    if (block.listItem) {
+      const currentListType = block.listItem === 'number' ? 'ol' : 'ul';
+      if (!inList) {
+        html += < + currentListType +  style= + 'margin-left: 20px;' + >;
+        inList = true;
+        listType = currentListType;
+      }
+      html += <li> + textHtml + </li>;
+      return;
+    } else {
+      if (inList) {
+        html += </ + listType + >;
+        inList = false;
+      }
+    }
+
+    const style = block.style || 'normal';
+    if (style === 'h1') html += <h1> + textHtml + </h1>;
+    else if (style === 'h2') html += <h2> + textHtml + </h2>;
+    else if (style === 'h3') html += <h3> + textHtml + </h3>;
+    else if (style === 'h4') html += <h4> + textHtml + </h4>;
+    else if (style === 'blockquote') html += <blockquote style='border-left: 4px solid #fff; padding-left: 1rem; margin: 1rem 0; font-style: italic;'> + textHtml + </blockquote>;
+    else if (style === 'leftAlign') html += <p style='text-align: left;'> + textHtml + </p>;
+    else if (style === 'centerAlign') html += <p style='text-align: center;'> + textHtml + </p>;
+    else if (style === 'rightAlign') html += <p style='text-align: right;'> + textHtml + </p>;
+    else if (style === 'justifyText') html += <p style='text-align: justify;'> + textHtml + </p>;
+    else html += <p> + textHtml + </p>;
+  });
+
+  if (inList) html += </ + listType + >;
+
+  return html;
+}
+

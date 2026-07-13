@@ -3,7 +3,7 @@
    5 Floors, Elevator Logic, CMS stub
    ═══════════════════════════════════════════ */
 
-import { fetchSanityData, urlFor } from './sanity-client.js';
+import { fetchSanityData, urlFor, portableTextToHtml } from './sanity-client.js';
 
 /* ─── DOM refs (populated in init) ─── */
 const $  = (sel) => document.querySelector(sel);
@@ -759,9 +759,14 @@ async function loadSanityContent() {
         const card = document.createElement("div");
         card.className = "feedback-card";
         card.dataset.animate = "";
+        
+        let quoteHtml = portableTextToHtml(tDoc.quote);
+        // If it starts with <p>, we remove the outer <p> so we can wrap it in our own stylized quote marks if needed, 
+        // or just render it directly. We'll render it directly inside a div instead of a <p> tag.
+        
         card.innerHTML = `
           <div class="stars">${stars}</div>
-          <p>"${tDoc.quote}"</p>
+          <div class="quote-content" style="font-size: 1.1rem; line-height: 1.6; margin: 1rem 0;">"${quoteHtml}"</div>
           <div class="client-info">
             <strong>${tDoc.clientName}</strong>
             <span>${tDoc.role}</span>
