@@ -756,7 +756,13 @@ async function loadSanityContent() {
     if (feedbackGrid && data.testimonials && data.testimonials.length > 0) {
       feedbackGrid.innerHTML = "";
       data.testimonials.forEach(tDoc => {
-        const stars = "★".repeat(tDoc.rating || 5);
+        const ratingVal = tDoc.rating || 5;
+        const fullStars = Math.floor(ratingVal);
+        const hasHalfStar = ratingVal % 1 !== 0;
+        let starsHtml = "★".repeat(fullStars);
+        if (hasHalfStar) {
+          starsHtml += '<span style="position:relative; display:inline-block; color:rgba(251,126,0,0.3);">★<span style="position:absolute; left:0; top:0; width:50%; overflow:hidden; color:#fb7e00;">★</span></span>';
+        }
         const card = document.createElement("a");
         card.href = tDoc.slug ? `/works/work-detail.html?slug=${tDoc.slug.current}` : '#';
         card.className = "feedback-card";
@@ -769,7 +775,7 @@ async function loadSanityContent() {
         // or just render it directly. We'll render it directly inside a div instead of a <p> tag.
         
         card.innerHTML = `
-          <div class="stars">${stars}</div>
+          <div class="stars">${starsHtml}</div>
           <div class="quote-content" style="font-size: 1.1rem; line-height: 1.6; margin: 1rem 0;">${quoteHtml}</div>
           <div class="client-info">
             <strong>${tDoc.clientName}</strong>
