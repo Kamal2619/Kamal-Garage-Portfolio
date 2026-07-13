@@ -206,23 +206,23 @@ body.doors-open .elevator-door.right {
 .door-surface {
   width: 100%;
   height: 100%;
-  background-color: #001334;
-  background-image: repeating-linear-gradient(45deg, transparent, transparent 25px, rgba(251,126,0,0.15) 25px, rgba(251,126,0,0.15) 28px),
-    repeating-linear-gradient(-45deg, transparent, transparent 25px, rgba(251,126,0,0.15) 25px, rgba(251,126,0,0.15) 28px),
-    repeating-linear-gradient(90deg, transparent, transparent 70px, rgba(251,126,0,0.08) 70px, rgba(251,126,0,0.08) 76px);
+  background-color: #0a0a0a;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 25px, #888 25px, #888 28px),
+    repeating-linear-gradient(-45deg, transparent, transparent 25px, #888 25px, #888 28px),
+    repeating-linear-gradient(90deg, transparent, transparent 70px, #444 70px, #444 76px);
   position: relative;
   overflow: hidden;
-  box-shadow: inset 0 0 100px rgba(0, 19, 52, 0.9);
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.9);
 }
 
 .elevator-door.left .door-surface {
-  border-right: 8px solid #002050;
-  box-shadow: inset -10px 0 30px rgba(0, 19, 52, .8), inset 0 0 80px rgba(0, 19, 52, .6);
+  border-right: 8px solid #222;
+  box-shadow: inset -10px 0 30px rgba(0, 0, 0, .8), inset 0 0 80px rgba(0, 0, 0, .6);
 }
 
 .elevator-door.right .door-surface {
-  border-left: 8px solid #002050;
-  box-shadow: inset 10px 0 30px rgba(0, 19, 52, .8), inset 0 0 80px rgba(0, 19, 52, .6);
+  border-left: 8px solid #222;
+  box-shadow: inset 10px 0 30px rgba(0, 0, 0, .8), inset 0 0 80px rgba(0, 0, 0, .6);
 }
 
 body:not(.doors-open) .door-surface {
