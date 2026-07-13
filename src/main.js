@@ -739,7 +739,8 @@ async function loadSanityContent() {
         const item = document.createElement("div");
         item.className = "marquee-item";
         const logoUrl = urlFor(logoDoc.logo);
-        item.innerHTML = `<img src="${logoUrl}" alt="${logoDoc.name || 'Brand Logo'}" />`;
+        const slug = logoDoc.slug?.current || '#';
+        item.innerHTML = `<a href="/works/work-detail.html?slug=${slug}"><img src="${logoUrl}" alt="${logoDoc.name || 'Brand Logo'}" /></a>`;
         els.marqueeTrack.appendChild(item);
       });
       // Recalculate 3D positioning circle

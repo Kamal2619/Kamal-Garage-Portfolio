@@ -28,7 +28,7 @@ export async function fetchSanityData() {
     // Split the unified 'brandWork' into the arrays the home page expects
     return {
       projects: result, 
-      logos: result.filter(r => r.clientLogo).map(r => ({ name: r.title, logo: r.clientLogo })),
+      logos: result.filter(r => r.clientLogo).map(r => ({ name: r.title, logo: r.clientLogo, slug: r.slug })),
       testimonials: result.filter(r => r.feedbackQuote).map(r => ({
         clientName: r.clientName || r.title,
         role: r.clientRole || '',
