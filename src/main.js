@@ -755,7 +755,7 @@ async function loadSanityContent() {
     const feedbackGrid = $(".feedback-grid");
     if (feedbackGrid && data.testimonials && data.testimonials.length > 0) {
       feedbackGrid.innerHTML = "";
-      data.testimonials.forEach(tDoc => {
+      data.testimonials.forEach((tDoc) => {
         const ratingVal = tDoc.rating || 5;
         const fullStars = Math.floor(ratingVal);
         const hasHalfStar = ratingVal % 1 !== 0;
@@ -763,33 +763,118 @@ async function loadSanityContent() {
         if (hasHalfStar) {
           starsHtml += '<span style="position:relative; display:inline-block; color:rgba(251,126,0,0.3);">★<span style="position:absolute; left:0; top:0; width:50%; overflow:hidden; color:#fb7e00;">★</span></span>';
         }
-        const card = document.createElement("a");
-        card.href = tDoc.slug ? `/works/work-detail.html?slug=${tDoc.slug.current}` : '#';
+        
+        // Changed from <a> to <div> to allow swiping without accidental navigation
+        const card = document.createElement("div");
         card.className = "feedback-card";
-        card.style.textDecoration = "none";
-        card.style.color = "inherit";
-        card.dataset.animate = "";
         
         let quoteHtml = portableTextToHtml(tDoc.quote);
-        // If it starts with <p>, we remove the outer <p> so we can wrap it in our own stylized quote marks if needed, 
-        // or just render it directly. We'll render it directly inside a div instead of a <p> tag.
         
         card.innerHTML = `
           <div class="stars">${starsHtml}</div>
-          <div class="quote-content" style="font-size: 1.1rem; line-height: 1.6; margin: 1rem 0;">${quoteHtml}</div>
+          <div class="quote-content" style="font-size: 1.1rem; line-height: 1.6; margin: 1rem 0; color: #FFFDF6;">${quoteHtml}</div>
           <div class="client-info">
             <strong>${tDoc.clientName}</strong>
-            <span>${tDoc.role}</span>
+            <span style="color: var(--muted);">${tDoc.role}</span>
           </div>
         `;
         feedbackGrid.appendChild(card);
       });
-      // Re-observe dynamic elements for scroll animations
-      setupIntersectionObservers();
+      
+      setupSwipeCards(feedbackGrid);
     }
   } catch (err) {
     console.error("Error loading Sanity content:", err);
   }
+}
+
+function setupSwipeCards(container) {
+  let cards = Array.from(container.querySelectorAll('.feedback-card'));
+  if (cards.length === 0) return;
+  
+  function updateCardStack() {
+    cards.forEach((card, i) => {
+      // Top card is i=0
+      card.style.zIndex = cards.length - i;
+      
+      if (i === 0) {
+        card.style.transform = 'scale(1) translateY(0) rotate(0)';
+        card.style.opacity = '1';
+        // Add swipe hint animation to the top card after a short delay to make it noticeable
+        setTimeout(() => card.classList.add('swipe-hint'), 500);
+      } else if (i === 1) {
+        card.style.transform = 'scale(0.95) translateY(20px)';
+        card.style.opacity = '0.9';
+        card.classList.remove('swipe-hint');
+      } else if (i === 2) {
+        card.style.transform = 'scale(0.9) translateY(40px)';
+        card.style.opacity = '0.7';
+        card.classList.remove('swipe-hint');
+      } else {
+        card.style.transform = 'scale(0.85) translateY(60px)';
+        card.style.opacity = '0';
+        card.classList.remove('swipe-hint');
+      }
+    });
+  }
+
+  let isDragging = false;
+  let startX = 0, startY = 0, currentX = 0, currentY = 0;
+  
+  container.addEventListener('pointerdown', e => {
+    const topCard = cards[0];
+    if (!topCard || !topCard.contains(e.target)) return;
+    
+    isDragging = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    topCard.classList.add('dragging');
+    topCard.classList.remove('swipe-hint'); // Remove hint on interact
+    topCard.setPointerCapture(e.pointerId);
+  });
+  
+  container.addEventListener('pointermove', e => {
+    if (!isDragging) return;
+    currentX = e.clientX - startX;
+    currentY = e.clientY - startY;
+    
+    const rotate = currentX * 0.05; // rotate slightly based on swipe distance
+    const topCard = cards[0];
+    topCard.style.transform = `translate(${currentX}px, ${currentY}px) rotate(${rotate}deg)`;
+  });
+  
+  container.addEventListener('pointerup', e => {
+    if (!isDragging) return;
+    isDragging = false;
+    const topCard = cards[0];
+    topCard.classList.remove('dragging');
+    topCard.releasePointerCapture(e.pointerId);
+    
+    // Threshold for swipe to trigger next card
+    if (Math.abs(currentX) > 100) {
+      // Swiped away
+      const direction = currentX > 0 ? 1 : -1;
+      topCard.style.transform = `translate(${direction * window.innerWidth}px, ${currentY}px) rotate(${direction * 45}deg)`;
+      topCard.style.opacity = '0';
+      
+      // Re-append to back after animation completes to loop endlessly
+      setTimeout(() => {
+        cards.shift(); 
+        cards.push(topCard); 
+        container.appendChild(topCard); 
+        updateCardStack(); 
+      }, 400); 
+      
+    } else {
+      // Snap back if not swiped far enough
+      updateCardStack();
+    }
+    
+    currentX = 0;
+    currentY = 0;
+  });
+  
+  updateCardStack();
 }
 
 /* ─── Boot ─── */

@@ -1416,66 +1416,7 @@ h6 {
   transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-/* Position 15 logos in a 3D circle */
-.marquee-track .marquee-item:nth-child(1) {
-  transform: rotateY(0deg) translateZ(clamp(300px, 35vw, 600px));
-}
-
-.marquee-track .marquee-item:nth-child(2) {
-  transform: rotateY(24deg) translateZ(clamp(300px, 35vw, 600px));
-}
-
-.marquee-track .marquee-item:nth-child(3) {
-  transform: rotateY(48deg) translateZ(clamp(300px, 35vw, 600px));
-}
-
-.marquee-track .marquee-item:nth-child(4) {
-  transform: rotateY(72deg) translateZ(clamp(300px, 35vw, 600px));
-}
-
-.marquee-track .marquee-item:nth-child(5) {
-  transform: rotateY(96deg) translateZ(clamp(300px, 35vw, 600px));
-}
-
-.marquee-track .marquee-item:nth-child(6) {
-  transform: rotateY(120deg) translateZ(clamp(300px, 35vw, 600px));
-}
-
-.marquee-track .marquee-item:nth-child(7) {
-  transform: rotateY(144deg) translateZ(clamp(300px, 35vw, 600px));
-}
-
-.marquee-track .marquee-item:nth-child(8) {
-  transform: rotateY(168deg) translateZ(clamp(300px, 35vw, 600px));
-}
-
-.marquee-track .marquee-item:nth-child(9) {
-  transform: rotateY(192deg) translateZ(clamp(300px, 35vw, 600px));
-}
-
-.marquee-track .marquee-item:nth-child(10) {
-  transform: rotateY(216deg) translateZ(clamp(300px, 35vw, 600px));
-}
-
-.marquee-track .marquee-item:nth-child(11) {
-  transform: rotateY(240deg) translateZ(clamp(300px, 35vw, 600px));
-}
-
-.marquee-track .marquee-item:nth-child(12) {
-  transform: rotateY(264deg) translateZ(clamp(300px, 35vw, 600px));
-}
-
-.marquee-track .marquee-item:nth-child(13) {
-  transform: rotateY(288deg) translateZ(clamp(300px, 35vw, 600px));
-}
-
-.marquee-track .marquee-item:nth-child(14) {
-  transform: rotateY(312deg) translateZ(clamp(300px, 35vw, 600px));
-}
-
-.marquee-track .marquee-item:nth-child(15) {
-  transform: rotateY(336deg) translateZ(clamp(300px, 35vw, 600px));
-}
+/* Carousel rotation is now dynamically calculated in main.js based on total items */
 
 .marquee-item:hover img {
   filter: brightness(1.2) contrast(1.2) drop-shadow(0 0 20px rgba(230, 192, 46, 0.5));
@@ -1493,15 +1434,20 @@ h6 {
 }
 
 .feedback-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  justify-content: center;
-  max-width: 900px;
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  height: 400px;
   margin: 0 auto;
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .feedback-card {
+  position: absolute;
+  width: 100%;
   background: #2c2c2c;
   border: 1px solid var(--soft);
   border-radius: 16px;
@@ -1509,17 +1455,26 @@ h6 {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.5s ease, box-shadow 0.5s ease;
-  will-change: transform;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .4);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+  will-change: transform, opacity;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
 }
 
-.feedback-card:hover {
-  transform: translateY(-8px) scale(1.025);
-  border-color: color-mix(in srgb, var(--accent) 50%, transparent);
-  box-shadow:
-    0 24px 50px rgba(0, 0, 0, 0.5),
-    0 0 30px color-mix(in srgb, var(--accent) 20%, transparent);
+.feedback-card.dragging {
+  transition: none;
+  cursor: grabbing;
+}
+
+@keyframes swipeHint {
+  0%, 100% { transform: translateX(0) rotate(0); }
+  50% { transform: translateX(12px) rotate(2deg); }
+}
+
+.swipe-hint {
+  animation: swipeHint 1.2s ease-in-out 2;
 }
 
 .feedback-card .stars {

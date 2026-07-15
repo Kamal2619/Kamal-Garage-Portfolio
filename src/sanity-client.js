@@ -9,7 +9,7 @@ const API_VERSION = "2024-05-01";
 const SANITY_URL = `https://${PROJECT_ID}.api.sanity.io/v${API_VERSION}/data/query/${DATASET}`;
 
 export async function fetchSanityData() {
-  const query = encodeURIComponent(`*[_type == "brandWork"]{
+  const query = encodeURIComponent(`*[_type == "brandWork"]|order(orderRank){
     title,
     slug,
     category,
