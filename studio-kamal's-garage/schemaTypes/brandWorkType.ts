@@ -164,9 +164,19 @@ export const brandWorkType = defineType({
     }),
     defineField({
       name: 'gallery',
-      title: 'Project Gallery (Images for Right Column)',
+      title: 'Project Gallery (Images & Media for Right Column)',
       type: 'array',
-      of: [{type: 'image'}],
+      of: [
+        {type: 'image'},
+        {type: 'file', title: 'Video / Audio / Document File', options: { storeOriginalFilename: true }}
+      ],
+    }),
+    defineField({
+      name: 'projectFiles',
+      title: 'Additional Project Files (Audio, Video, PDF, ZIP)',
+      type: 'array',
+      of: [{type: 'file', options: { storeOriginalFilename: true }}],
+      description: 'Upload any other file formats here.'
     }),
   ],
 })
