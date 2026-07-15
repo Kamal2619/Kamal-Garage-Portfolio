@@ -3,7 +3,7 @@
    5 Floors, Elevator Logic, CMS stub
    ═══════════════════════════════════════════ */
 
-import { fetchSanityData, urlFor, portableTextToHtml } from './sanity-client.js';
+import { fetchSanityData, urlFor, portableTextToHtml, renderMedia } from './sanity-client.js';
 
 /* ─── DOM refs (populated in init) ─── */
 const $  = (sel) => document.querySelector(sel);
@@ -738,9 +738,9 @@ async function loadSanityContent() {
       data.logos.forEach(logoDoc => {
         const item = document.createElement("div");
         item.className = "marquee-item";
-        const logoUrl = urlFor(logoDoc.logo);
         const slug = logoDoc.slug?.current || '#';
-        item.innerHTML = `<a href="/works/work-detail.html?slug=${slug}"><img src="${logoUrl}" alt="${logoDoc.name || 'Brand Logo'}" /></a>`;
+        const mediaHtml = renderMedia(logoDoc.logo, logoDoc.name || 'Brand Logo');
+        item.innerHTML = `<a href="/works/work-detail.html?slug=${slug}">${mediaHtml}</a>`;
         els.marqueeTrack.appendChild(item);
       });
       // Recalculate 3D positioning circle

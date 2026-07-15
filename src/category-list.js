@@ -1,4 +1,4 @@
-import { fetchWorksByCategory, urlFor } from './sanity-client.js';
+import { fetchWorksByCategory, renderMedia } from './sanity-client.js';
 
 document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById('dynamic-brand-list');
@@ -20,9 +20,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   container.innerHTML = ''; // clear loading state
 
   works.forEach(work => {
-    const thumbUrl = urlFor(work.thumbnail);
-    const fallbackThumb = '<div style="width: 100%; height: 100%; background: #222; display: flex; align-items: center; justify-content: center; color: #555;">No Image</div>';
-    const thumbImg = thumbUrl ? `<img src="${thumbUrl}" alt="${work.title}" style="width: 100%; height: 100%; object-fit: cover;" />` : fallbackThumb;
+    const fallbackThumb = '<div style="width: 100%; height: 100%; background: #222; display: flex; align-items: center; justify-content: center; color: #555;">No Media</div>';
+    const mediaHtml = work.thumbnail ? renderMedia(work.thumbnail, work.title) : fallbackThumb;
+    // ensure the rendered media fits properly in the container
+    const styledMediaHtml = mediaHtml.replace('<img ', '<img style="width: 100%; height: 100%; object-fit: cover;" ').replace('<video ', '<video style="width: 100%; height: 100%; object-fit: cover;" ');
 
     const projectTypeStr = work.projectType ? `<span class="brand-meta-tag">${work.projectType}</span>` : '';
     const subtitleStr = work.subtitle ? `<span class="brand-subtitle-tag">${work.subtitle}</span>` : '';
@@ -43,7 +44,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         </div>
       </div>
       <div class="brand-mockup-side" style="display: flex; align-items: center; justify-content: center; background: #1a1a1a; overflow: hidden;">
-        ${thumbImg}
+        ${styledMediaHtml}
       </div>
     `;
     container.appendChild(a);

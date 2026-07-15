@@ -79,8 +79,49 @@ export async function fetchWorksByCategory(category) {
 export function urlFor(source) {
   if (!source || !source.asset || !source.asset._ref) return '';
   const ref = source.asset._ref;
-  const [, id, dimensions, format] = ref.split('-');
-  return `https://cdn.sanity.io/images/${PROJECT_ID}/${DATASET}/${id}-${dimensions}.${format}`;
+  const parts = ref.split('-');
+  const type = parts[0];
+  
+  if (type === 'image') {
+    const [, id, dimensions, format] = parts;
+    return `https://cdn.sanity.io/images/${PROJECT_ID}/${DATASET}/${id}-${dimensions}.${format}`;
+  } else if (type === 'file') {
+    const [, id, format] = parts;
+    return `https://cdn.sanity.io/files/${PROJECT_ID}/${DATASET}/${id}.${format}`;
+  }
+  return '';
+}
+
+export function getFileType(source) {
+  if (!source || !source.asset || !source.asset._ref) return 'unknown';
+  const ref = source.asset._ref;
+  const parts = ref.split('-');
+  const format = parts[parts.length - 1].toLowerCase();
+  
+  if (['mp4', 'webm', 'ogg', 'mov'].includes(format)) return 'video';
+  if (['mp3', 'wav', 'ogg', 'm4a'].includes(format)) return 'audio';
+  if (['pdf', 'doc', 'docx', 'txt', 'zip'].includes(format)) return 'document';
+  return 'image';
+}
+
+export function renderMedia(source, altText = '', className = '') {
+  if (!source) return '';
+  const url = urlFor(source);
+  if (!url) return '';
+  
+  const type = getFileType(source);
+  const clsAttr = className ? `class="${className}"` : '';
+  
+  if (type === 'video') {
+    return `<video src="${url}" ${clsAttr} autoplay loop muted playsinline style="max-width:100%; object-fit:cover;"></video>`;
+  } else if (type === 'audio') {
+    return `<audio src="${url}" ${clsAttr} controls style="width:100%;"></audio>`;
+  } else if (type === 'document') {
+    // Return a styled link or button for documents
+    return `<a href="${url}" ${clsAttr} target="_blank" style="display:inline-block; padding:10px 20px; background:var(--primary); color:var(--bg); text-decoration:none; border-radius:5px; font-weight:bold;">Download Document / File</a>`;
+  } else {
+    return `<img src="${url}" alt="${altText}" ${clsAttr} />`;
+  }
 }
 
 export function portableTextToHtml(blocks) {

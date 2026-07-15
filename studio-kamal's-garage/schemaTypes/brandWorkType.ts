@@ -39,7 +39,9 @@ export const brandWorkType = defineType({
     defineField({
       name: 'clientLogo',
       title: 'Client Logo (For Home Marquee)',
-      type: 'image',
+      type: 'file',
+      options: { storeOriginalFilename: true },
+      description: 'Supports any file type (image, video, etc.)'
     }),
     defineField({
       name: 'feedbackQuote',
@@ -85,8 +87,9 @@ export const brandWorkType = defineType({
     defineField({
       name: 'thumbnail',
       title: 'Project Thumbnail (For Works List)',
-      type: 'image',
-      options: {hotspot: true},
+      type: 'file',
+      options: { storeOriginalFilename: true },
+      description: 'Supports any file type (image, video, etc.)'
     }),
     defineField({
       name: 'projectTag',

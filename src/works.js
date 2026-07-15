@@ -1,6 +1,6 @@
 /* ═══ WORKS SUB-PAGES JS ═══ */
 
-import { fetchSanityData, urlFor } from '/src/sanity-client.js';
+import { fetchSanityData, renderMedia } from '/src/sanity-client.js';
 
 // Toggle accordion items (if any are present)
 export function toggleBrand(button) {
@@ -113,7 +113,7 @@ async function loadSanityProjects() {
     card.href = "#";
     card.className = "brand-row-layout";
     
-    const imgUrl = project.thumbnail ? urlFor(project.thumbnail) : "/assets/mc-logo-cube.png";
+    const mediaHtml = project.thumbnail ? renderMedia(project.thumbnail, project.title + " Mockup") : `<img src="/assets/mc-logo-cube.png" alt="${project.title} Mockup" />`;
 
     card.innerHTML = `
       <div class="brand-info-side">
@@ -128,7 +128,7 @@ async function loadSanityProjects() {
         </div>
       </div>
       <div class="brand-mockup-side">
-        <img src="${imgUrl}" alt="${project.title} Mockup" />
+        ${mediaHtml}
       </div>
     `;
 
@@ -154,16 +154,16 @@ function openProjectModal(project) {
   let galleryHtml = "";
   if (project.gallery && project.gallery.length > 0) {
     project.gallery.forEach(imgRef => {
-      const imgUrl = urlFor(imgRef);
+      const gMediaHtml = renderMedia(imgRef, "Gallery Media");
       galleryHtml += `
         <div class="modal-gallery-card">
-          <img src="${imgUrl}" alt="Gallery Image" />
+          ${gMediaHtml}
         </div>
       `;
     });
   }
 
-  const thumbUrl = project.thumbnail ? urlFor(project.thumbnail) : "/assets/mc-logo-cube.png";
+  const thumbHtml = project.thumbnail ? renderMedia(project.thumbnail, project.title) : `<img src="/assets/mc-logo-cube.png" alt="${project.title}" />`;
 
   modal.innerHTML = `
     <div class="modal-wrapper">
@@ -177,21 +177,22 @@ function openProjectModal(project) {
           <div class="modal-narrative">
             <h3>The Challenge</h3>
             <p>${project.challenge || "No description provided."}</p>
-            <h3>The Solution</h3>
-            <p>${project.solution || "No description provided."}</p>
+            <h3>The Deliverables</h3>
+            <p>${project.deliverables || "N/A"}</p>
           </div>
         </div>
-        <div class="modal-visuals-column">
-          <div class="modal-visual-main">
-            <img src="${thumbUrl}" alt="${project.title} Hero Image" />
+        
+        <div class="modal-gallery-area">
+          <div class="modal-hero-banner">
+            ${thumbHtml}
           </div>
-          ${galleryHtml}
+          <div class="modal-gallery-grid">
+            ${galleryHtml}
+          </div>
         </div>
       </div>
     </div>
-  `;
-
-  modal.classList.add("open");
+  `;modal.classList.add("open");
   document.body.style.overflow = "hidden";
 
   modal.querySelector(".modal-close-btn").addEventListener("click", () => {

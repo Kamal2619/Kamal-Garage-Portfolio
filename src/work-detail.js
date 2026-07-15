@@ -1,4 +1,4 @@
-import { fetchWorkBySlug, urlFor, portableTextToHtml } from './sanity-client.js';
+import { fetchWorkBySlug, renderMedia, portableTextToHtml } from './sanity-client.js';
 
 document.addEventListener("DOMContentLoaded", async () => {
   const urlParams = new URLSearchParams(window.location.search);
@@ -48,11 +48,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   const galleryEl = document.getElementById('pd-gallery');
   if (projectData.gallery && projectData.gallery.length > 0) {
     projectData.gallery.forEach(imgData => {
-      const imgUrl = urlFor(imgData);
-      if (imgUrl) {
+      const mediaHtml = renderMedia(imgData, `${projectData.title} Showcase`);
+      if (mediaHtml) {
         const div = document.createElement('div');
         div.className = 'visual-showcase-card';
-        div.innerHTML = `<img src="${imgUrl}" alt="${projectData.title} Showcase" />`;
+        div.innerHTML = mediaHtml;
         galleryEl.appendChild(div);
       }
     });
