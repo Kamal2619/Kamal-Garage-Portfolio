@@ -726,6 +726,176 @@ body.doors-open .door-light {
   line-height: 1.6;
 }
 
+/* ═══ BENTO HERO LAYOUT ═══ */
+.bento-hero-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 240px;
+  gap: 20px;
+}
+
+.bento-item {
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.bento-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.bento-top {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  background-color: #31d556; /* Green */
+  color: #fff;
+  border: none;
+  justify-content: flex-end;
+  padding: 40px;
+}
+
+.bento-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 19, 52, 0.9) 0%, rgba(0, 19, 52, 0.2) 100%);
+  z-index: 1;
+}
+
+.bento-content-top {
+  position: relative;
+  z-index: 2;
+}
+
+.bento-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.bento-title-main {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.1;
+  font-family: 'Alte Haas Grotesk Bold', sans-serif;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.bento-mid-left {
+  grid-column: 1 / 3;
+  grid-row: 2;
+  background-color: #31d556; /* Green */
+  color: #000;
+  border: none;
+}
+
+.bento-manifesto {
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  line-height: 1.6;
+  font-family: 'Alte Haas Grotesk Bold', sans-serif;
+}
+
+.bento-right {
+  grid-column: 3 / 5;
+  grid-row: 2 / 4;
+  background-color: #fa8e51; /* Orange/Red */
+  color: #000;
+  border: none;
+  justify-content: flex-end;
+}
+
+.bento-text-large h3 {
+  font-size: 2.5rem;
+  font-family: 'Alte Haas Grotesk Bold', sans-serif;
+  margin-bottom: 10px;
+}
+
+.bento-role {
+  font-size: 1.2rem;
+  font-weight: bold;
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+.bento-desc {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.bento-bot-left-1, .bento-bot-left-2 {
+  background-color: #fce23b; /* Yellow */
+  color: #000;
+  border: none;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.bento-bot-left-1 {
+  grid-column: 1 / 2;
+  grid-row: 3;
+}
+
+.bento-bot-left-2 {
+  grid-column: 2 / 3;
+  grid-row: 3;
+}
+
+.bento-small-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+  font-weight: bold;
+}
+
+.bento-small-value {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-family: 'Alte Haas Grotesk Bold', sans-serif;
+}
+
+@media (max-width: 900px) {
+  .bento-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: minmax(180px, auto);
+  }
+  .bento-top { grid-column: 1 / -1; grid-row: 1; }
+  .bento-mid-left { grid-column: 1 / -1; grid-row: 2; }
+  .bento-bot-left-1 { grid-column: 1 / 2; grid-row: 3; }
+  .bento-bot-left-2 { grid-column: 2 / 3; grid-row: 3; }
+  .bento-right { grid-column: 1 / -1; grid-row: 4; }
+}
+
+@media (max-width: 500px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+  .bento-bot-left-1, .bento-bot-left-2 {
+    grid-column: 1 / -1;
+  }
+  .bento-bot-left-2 { grid-row: 4; }
+  .bento-right { grid-row: 5; }
+}
+
 /* ─── Tagline Gilded Highlight ─── */
 .brand-manifesto-highlight {
   max-width: 900px;
