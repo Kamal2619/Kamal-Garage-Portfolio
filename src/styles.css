@@ -736,6 +736,155 @@ body.doors-open .door-light {
   border-left: 4px solid var(--gold);
 }
 
+/* ═══ BRUTALIST HERO LAYOUT ═══ */
+.brutalist-hero-wrapper {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: var(--bg-dark);
+}
+
+.brutalist-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 0;
+  border: 4px solid #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.brutalist-item {
+  padding: 30px;
+}
+
+/* Top Area (Title) */
+.brutalist-title-area {
+  grid-column: 1 / -1;
+  border-bottom: 2px solid #000;
+  background: #fff; /* Could be #31d556 if user wants strictly colored, but ref is white/black with huge text. I'll stick to Brutalist style (B&W) for professionalism */
+  text-align: left;
+}
+
+.brutalist-main-title {
+  font-family: 'Alte Haas Grotesk Bold', sans-serif;
+  font-size: clamp(3rem, 8vw, 7.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: #000;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Middle Left */
+.brutalist-subheading-area {
+  grid-column: 1 / 2;
+  border-bottom: 2px solid #000;
+  border-right: 2px solid #000;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #fff;
+}
+
+.brutalist-arrow {
+  font-size: 2rem;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brutalist-role {
+  font-family: 'Alte Haas Grotesk Bold', sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: #000;
+  margin: 0;
+}
+
+/* Bottom Left (Descriptions) */
+.brutalist-desc-area {
+  grid-column: 1 / 2;
+  border-right: 2px solid #000;
+  background: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 40px 30px;
+}
+
+.brutalist-desc-column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.brutalist-desc-item {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+  border-bottom: 1px solid #000;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.brutalist-desc-text {
+  font-size: 0.9rem;
+  color: #000;
+  line-height: 1.5;
+  border-bottom: 1px solid #000;
+  padding-bottom: 10px;
+}
+
+/* Right Column (Photo) */
+.brutalist-photo-area {
+  grid-column: 2 / 3;
+  grid-row: 2 / 4;
+  padding: 0;
+  background: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.brutalist-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.2);
+}
+
+@media (max-width: 900px) {
+  .brutalist-grid {
+    grid-template-columns: 1fr;
+  }
+  .brutalist-subheading-area,
+  .brutalist-desc-area,
+  .brutalist-photo-area {
+    grid-column: 1 / -1;
+    border-right: none;
+  }
+  .brutalist-photo-area {
+    grid-row: auto;
+    height: 400px;
+    border-top: 2px solid #000;
+  }
+}
+
+@media (max-width: 500px) {
+  .brutalist-desc-area {
+    grid-template-columns: 1fr;
+  }
+}
+
 .tagline-glow {
   font-size: clamp(1.5rem, 3.8vw, 3.2rem);
   font-family: 'Alte Haas Grotesk Bold', 'Alte Haas Grotesk', sans-serif;
