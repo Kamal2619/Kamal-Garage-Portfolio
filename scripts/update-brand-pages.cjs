@@ -12,7 +12,7 @@ const files = [
 
 const topbarRegex = /<header class="works-topbar">[\s\S]*?<\/header>/;
 const cursorRegex = /<div id="cursor-cube"[\s\S]*?<\/div>/;
-const mcLogoRegex = /<title>([\s\S]*?) \| Minimal Creates<\/title>/;
+const mcLogoRegex = /<title>([\s\S]*?) \| Kamal's Portfolio<\/title>/;
 
 const newTopbar = `<header class="works-topbar">
       <a href="/index.html" class="brand-link">

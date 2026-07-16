@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   Minimal Creates — Ascension Paradigm (v2)
+   Kamal's Portfolio — Ascension Paradigm (v2)
    5 Floors, Elevator Logic, CMS stub
    ═══════════════════════════════════════════ */
 
